@@ -4,7 +4,7 @@ module AdmqrKnife
   class CubeService < DefaultRest
     class << self
       def basic_url
-        AdmqrKnife.base
+        AdmqrKnife.knife_base_uri
       end
 
       def base_params

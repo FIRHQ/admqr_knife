@@ -2,6 +2,8 @@
 
 require 'admqr_knife/version'
 require 'api_tools'
+require 'byebug'
+require_relative './admqr_knife/cube_service'
 
 module AdmqrKnife
   class Error < StandardError; end
@@ -21,7 +23,6 @@ module AdmqrKnife
 
     def visit(unique_code:, **options)
       raise 'unique_code 不能为空' if unique_code.to_s == ''
-
       ua = options[:ua]
       referer = options[:referer]
       tag = options[:tag]
