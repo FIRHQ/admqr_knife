@@ -1,8 +1,12 @@
 # AdmqrKnife
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/admqr_knife`. To experiment with that code, run `bin/console` for an interactive prompt.
+通过第三方转发统计信息给毛驴短链, 这样就可以做到不用用户访问访问, 将用户的信息直接转发即可
 
-TODO: Delete this and the text above, and describe your gem
+特别适合与做漏斗 
+
+比如曝光页面用毛驴做了统计 
+
+就可以在注册的时候再次发起一次统计, 即可得出曝光转化比
 
 ## Installation
 
@@ -22,7 +26,50 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### 命令行方式
+
+`admqr_visit record 标签名称 -t API_TOKEN`
+
+更多参数可以使用 `admqr_visit help record` 进行查看 
+
+
+### gem 集成
+
+1. 在 rails 里 initializers 中配置 
+
+```ruby
+AdmqrKnife.init(API_TOKEN)
+```
+
+2. 在需要记录的地方使用如下语法记录
+
+```ruby
+AdmqrKnife.visit unique_code: "唯一标记",
+                       ua: ua, # UA , 可不传
+                       referer: referer, # 来自于 , 可不传
+                       tag: tag, # 分组名 , 可不传
+                       new_to_visit: new_to_visit,  # 是否是今日首次访问 , 可不传, 默认是
+                       remote_ip: remote_ip # "用户IP"
+```
+
+### 直接发请求或集成第三方
+
+这种使用方式不需要安装这个gem
+
+```
+curl -X POST \
+  https://www.admqr.com/apic/v1 \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"api_token": "你的API_TOKEN",
+	"unique_code": "自己取的唯一标志",
+    "tag": "分组名, 可以不传",
+	"client_ua": "用户UA, 可以不传",
+	"referer": "来自于, 可以不传",
+    "new_to_visit": 是否是首次访问 true or false, 可以不传, 默认为true
+    "remote_ip": '用户的ip, 可以不传'
+}'
+```
 
 ## Development
 

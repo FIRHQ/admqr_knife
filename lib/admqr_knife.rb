@@ -23,21 +23,20 @@ module AdmqrKnife
 
     def visit(unique_code:, **options)
       raise 'unique_code 不能为空' if unique_code.to_s == ''
+
       ua = options[:ua]
       referer = options[:referer]
       tag = options[:tag]
       new_to_visit = options[:new_to_visit]
       remote_ip = options[:remote_ip]
       CubeService.post('/api/knifes/statis',
-                       unique_code: unique_code,
-                       ua: ua,
-                       referer: referer,
-                       tag: tag,
-                       new_to_visit: new_to_visit,
-                       remote_ip: remote_ip)
-    
+                       { unique_code: unique_code,
+                         client_ua: ua,
+                         referer: referer,
+                         tag: tag,
+                         new_to_visit: new_to_visit,
+                         remote_ip: remote_ip }.reject! { |_k, v| v.nil? })
     rescue StandardError => e
-      # do nothiing
       logger.error e.message
     end
 

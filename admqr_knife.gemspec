@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "byebug"
 
   spec.add_dependency 'api_tools'
+  spec.add_dependency 'thor'
 end
