@@ -2,7 +2,7 @@
 
 require 'admqr_knife/version'
 require 'api_tools'
-require 'byebug'
+# require 'byebug'
 require_relative './admqr_knife/cube_service'
 
 module AdmqrKnife
@@ -14,7 +14,7 @@ module AdmqrKnife
     def init(api_token = nil, options = {})
       @knife_api_token = api_token || ENV['ADMQR_KNIFE_API_TOKEN']
       @knife_base_uri = ENV['KNIFE_BASE_URI'] || 'https://www.admqr.com/apic/v1/'
-      logger = options[:logger] || select_logger
+      @logger = options[:logger] || select_logger
     end
 
     def api_token
