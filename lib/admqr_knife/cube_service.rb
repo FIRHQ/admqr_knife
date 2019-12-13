@@ -9,7 +9,7 @@ module AdmqrKnife
 
       def base_params
         {
-          api_token: AdmqrKnife.knife_api_token,
+          client_key: AdmqrKnife.knife_client_key,
           gem_version: AdmqrKnife::VERSION 
         }
       end

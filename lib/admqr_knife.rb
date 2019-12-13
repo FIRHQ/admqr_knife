@@ -9,16 +9,16 @@ module AdmqrKnife
   class Error < StandardError; end
   # Your code goes here...
   class << self
-    attr_accessor :knife_api_token, :knife_base_uri, :logger
+    attr_accessor :knife_client_key, :knife_base_uri, :logger
 
-    def init(api_token = nil, options = {})
-      @knife_api_token = api_token || ENV['ADMQR_KNIFE_API_TOKEN']
+    def init(client_key = nil, options = {})
+      @knife_client_key = client_key || ENV['ADMQR_KNIFE_CLIENT_KEY'] 
       @knife_base_uri = ENV['KNIFE_BASE_URI'] || 'https://www.admqr.com/apic/v1/'
       @logger = options[:logger] || select_logger
     end
 
-    def api_token
-      @knife_api_token
+    def client_key
+      @knife_client_key
     end
 
     def visit(unique_code:, **options)

@@ -28,7 +28,7 @@ Or install it yourself as:
 
 ### 命令行方式
 
-`admqr_visit record 标签名称 -t API_TOKEN`
+`admqr_visit record 标签名称 -t CLIENT_KEY`
 
 更多参数可以使用 `admqr_visit help record` 进行查看 
 
@@ -38,7 +38,7 @@ Or install it yourself as:
 1. 在 rails 里 initializers 中配置 
 
 ```ruby
-AdmqrKnife.init(API_TOKEN)
+AdmqrKnife.init(CLIENT_KEY)
 ```
 
 2. 在需要记录的地方使用如下语法记录
@@ -61,7 +61,7 @@ curl -X POST \
   https://www.admqr.com/apic/v1 \
   -H 'Content-Type: application/json' \
   -d '{
-	"api_token": "你的API_TOKEN",
+	"client_key": "你的CLIENT_KEY",
 	"unique_code": "自己取的唯一标志",
     "tag": "分组名, 可以不传",
 	"client_ua": "用户UA, 可以不传",

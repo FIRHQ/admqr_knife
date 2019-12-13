@@ -5,32 +5,30 @@ require 'thor'
 # require 'byebug'
 require_relative '../lib/admqr_knife'
 
-
 class AdmqrVisitCLI < Thor
   desc 'record', 'record a visit data'
-  option :api_token, :aliases => "-t", required: true, desc: "API TOKEN"
+  option :client_key, aliases: '-t', required: true, desc: 'admqr client key'
   option :ua, desc: "visitor's user agent"
   option :referer, desc: 'visitor from '
   option :tag, desc: 'project name'
   option :new_to_visit, type: :boolean, desc: 'is a new visit', default: true
+
   def record(unique_code)
-    AdmqrKnife.init(options[:api_token])
+    AdmqrKnife.init(options[:client_key])
     AdmqrKnife.visit(unique_code: unique_code,
                      ua: options[:ua],
                      referer: options[:referer],
                      tag: options[:tag],
                      new_to_visit: options[:new_to_visit],
                      remote_ip: options[:remote_ip])
-    AdmqrKnife.logger.debug("ok!")
+    AdmqrKnife.logger.debug('ok!')
   end
 
   desc 'help', 'Describe available commands or one specific command (aliases: `h`).'
-    map Thor::HELP_MAPPINGS => :help
-    def help(command = nil, subcommand = false)
-      super
-    end
-
-
+  map Thor::HELP_MAPPINGS => :help
+  def help(command = nil, subcommand = false)
+    super
+  end
 end
 
 AdmqrVisitCLI.start(ARGV)
