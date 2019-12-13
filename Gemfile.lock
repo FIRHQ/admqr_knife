@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    admqr_knife (0.1.0)
+    admqr_knife (0.1.2)
       api_tools
       thor
 

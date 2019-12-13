@@ -16,7 +16,7 @@ class AdmqrVisitCLI < Thor
   def record(unique_code)
     AdmqrKnife.init(options[:client_key])
     AdmqrKnife.visit(unique_code: unique_code,
-                     ua: options[:ua],
+                     client_ua: options[:ua],
                      referer: options[:referer],
                      tag: options[:tag],
                      new_to_visit: options[:new_to_visit],

@@ -9,8 +9,8 @@ module AdmqrKnife
 
       def base_params
         {
-          client_key: AdmqrKnife.knife_client_key,
-          gem_version: AdmqrKnife::VERSION 
+          knife_client_key: AdmqrKnife.knife_client_key,
+          gem_version: AdmqrKnife::VERSION
         }
       end
     end

@@ -35,7 +35,7 @@ Or install it yourself as:
 
 ### gem 集成
 
-1. 在 rails 里 initializers 中配置 
+1. 在 rails 里 initializers 中配置
 
 ```ruby
 AdmqrKnife.init(CLIENT_KEY)
@@ -56,7 +56,7 @@ AdmqrKnife.visit unique_code: "唯一标记",
 
 这种使用方式不需要安装这个gem
 
-```
+```bash
 curl -X POST \
   https://www.admqr.com/apic/v1 \
   -H 'Content-Type: application/json' \
