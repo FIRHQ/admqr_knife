@@ -29,11 +29,13 @@ module AdmqrKnife
       tag = options[:tag]
       new_to_visit = options[:new_to_visit]
       remote_ip = options[:remote_ip]
+      extra = options[:extra] 
       CubeService.post('/api/knifes/statis',
                        { unique_code: unique_code,
                          client_ua: ua,
                          referer: referer,
                          tag: tag,
+                         extra: extra,
                          new_to_visit: new_to_visit,
                          remote_ip: remote_ip }.reject! { |_k, v| v.nil? })
     rescue StandardError => e
