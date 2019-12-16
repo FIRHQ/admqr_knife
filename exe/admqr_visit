@@ -11,15 +11,17 @@ class AdmqrVisitCLI < Thor
   option :ua, desc: "visitor's user agent"
   option :referer, desc: 'visitor from '
   option :tag, desc: 'project name'
+  option :extra, desc: 'extra info'
   option :new_to_visit, type: :boolean, desc: 'is a new visit', default: true
 
   def record(unique_code)
     AdmqrKnife.init(options[:client_key])
     AdmqrKnife.visit(unique_code: unique_code,
-                     client_ua: options[:ua],
+                     client_ua: options[:ua] || options[:client_ua],
                      referer: options[:referer],
                      tag: options[:tag],
                      new_to_visit: options[:new_to_visit],
+                     extra: options[:extra],
                      remote_ip: options[:remote_ip])
     AdmqrKnife.logger.debug('ok!')
   end
