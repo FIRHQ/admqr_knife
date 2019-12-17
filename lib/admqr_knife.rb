@@ -39,7 +39,7 @@ module AdmqrKnife
                          new_to_visit: new_to_visit,
                          remote_ip: remote_ip }.reject! { |_k, v| v.nil? })
     rescue StandardError => e
-      logger.error e.message
+      logger.error "AdmqrKnife Gem Error: #{e.message}"
     end
 
     private
