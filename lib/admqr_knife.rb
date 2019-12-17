@@ -34,7 +34,6 @@ module AdmqrKnife
                        { unique_code: unique_code,
                          client_ua: ua,
                          referer: referer,
-                         extra: extra,
                          tag: tag,
                          extra: extra,
                          new_to_visit: new_to_visit,
