@@ -58,12 +58,13 @@ AdmqrKnife.visit unique_code: "唯一标记",
 
 ```bash
 curl -X POST \
-  https://www.admqr.com/apic/v1 \
+  https://www.admqr.com/apic/v1/api/knifes/statis \
   -H 'Content-Type: application/json' \
   -d '{
 	"client_key": "你的CLIENT_KEY",
 	"unique_code": "自己取的唯一标志",
-    "tag": "分组名, 可以不传",
+        "tag": "分组名, 可以不传",
+	"extra": {a: 1, b:2},  一层hash 值, 可不传
 	"client_ua": "用户UA, 可以不传",
 	"referer": "来自于, 可以不传",
     "new_to_visit": 是否是首次访问 true or false, 可以不传, 默认为true
