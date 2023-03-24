@@ -2,9 +2,9 @@
 
 通过第三方转发统计信息给毛驴短链, 这样就可以做到不用用户访问访问, 将用户的信息直接转发即可
 
-特别适合与做漏斗 
+特别适合与做漏斗
 
-比如曝光页面用毛驴做了统计 
+比如曝光页面用毛驴做了统计
 
 就可以在注册的时候再次发起一次统计, 即可得出曝光转化比
 
@@ -30,7 +30,7 @@ Or install it yourself as:
 
 `admqr_visit record 标签名称 -t CLIENT_KEY`
 
-更多参数可以使用 `admqr_visit help record` 进行查看 
+更多参数可以使用 `admqr_visit help record` 进行查看
 
 
 ### gem 集成
@@ -58,7 +58,7 @@ AdmqrKnife.visit unique_code: "唯一标记",
 
 ```bash
 curl -X POST \
-  https://www.admqr.com/apic/v1/api/knifes/statis \
+  https://www.maolvdl.com/apic/v1/api/knifes/statis \
   -H 'Content-Type: application/json' \
   -d '{
 	"client_key": "你的CLIENT_KEY",

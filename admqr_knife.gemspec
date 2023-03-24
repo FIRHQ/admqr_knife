@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'send vsist record to admqr service'
   spec.description   = 'send vsist record to admqr service'
-  spec.homepage      = "https://www.admqr.com"
+  spec.homepage      = "https://www.maolvdl.com"
   spec.license       = "MIT"
 
 

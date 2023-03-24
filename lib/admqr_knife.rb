@@ -12,8 +12,8 @@ module AdmqrKnife
     attr_accessor :knife_client_key, :knife_base_uri, :logger
 
     def init(client_key = nil, options = {})
-      @knife_client_key = client_key || ENV['ADMQR_KNIFE_CLIENT_KEY'] 
-      @knife_base_uri = ENV['KNIFE_BASE_URI'] || 'https://www.admqr.com/apic/v1/'
+      @knife_client_key = client_key || ENV['ADMQR_KNIFE_CLIENT_KEY']
+      @knife_base_uri = ENV['KNIFE_BASE_URI'] || 'https://www.maolvdl.com/apic/v1/'
       @logger = options[:logger] || select_logger
     end
 
@@ -29,7 +29,7 @@ module AdmqrKnife
       tag = options[:tag]
       new_to_visit = options[:new_to_visit]
       remote_ip = options[:remote_ip]
-      extra = options[:extra] 
+      extra = options[:extra]
       CubeService.post('/api/knifes/statis',
                        { unique_code: unique_code,
                          client_ua: ua,
